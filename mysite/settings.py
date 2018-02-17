@@ -25,7 +25,7 @@ SECRET_KEY = '9s94(h98)$fpy*floz)u!kf)cm!jif9610f3c5hza+qj9u5(h@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'ksenon.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'ksenksenon.pythonanywhere.com']
 
 
 # Application definition
