@@ -6,7 +6,9 @@
       <p>{{ post.text|linebreaksbr }}</p>
         <div class="date">
             <p>Опубликовано: {{ post.published_date }}</p>
+          <a href="{% url 'post_detail' pk=post.pk %}">Комментарии: {{ post.comments.count }}</a>
         </div>
     </div>
+    <hr>
 {% endfor %}
 {% endblock %}
