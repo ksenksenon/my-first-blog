@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+
 {% block content %}
 {% for post in posts %}
     <div class="post">
@@ -6,7 +7,7 @@
       <p>{{ post.text|linebreaksbr }}</p>
         <div class="date">
             <p>Опубликовано: {{ post.published_date }}</p>
-          <a href="{% url 'post_detail' pk=post.pk %}">Комментарии: {{ post.comments.count }}</a>
+          <a href="{% url 'post_detail' pk=post.pk %}">Комментарии: {{ post.approved_comments.count }}</a>
         </div>
     </div>
     <hr>

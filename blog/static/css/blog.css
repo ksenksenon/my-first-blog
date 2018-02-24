@@ -5,7 +5,7 @@ body {
     /* padding-left: 15px; */
 }
 .page-header {
-    background-color: #800080;
+    background-color: #000080;
     font-family: 'Indie Flower', cursive;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
@@ -13,7 +13,7 @@ body {
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: white;
-    font-size: 45pt;
+    font-size: 50pt;
     text-decoration: none;
 }
 
@@ -52,7 +52,7 @@ h2, h3, h4 {
 }
 
 .post {
-    margin-bottom: 45px;
+    margin-bottom: 35px;
 }
 
 .post h1 a, .post h1 a:visited {
@@ -65,5 +65,41 @@ h2, h3, h4 {
 }
 
 .emp {
-margin-top: 25px;
+    margin-top: 25px;
+}
+
+.dropdown {
+  float:right;
+}
+
+.adm {
+float:right;
+}
+
+.adm a {
+  color: #000080;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.likes {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-right: 10px;
+}
+
+.like_count_blog {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+footer {
+  background-color: #E0FFFF;
+  margin-top: 0;
+  padding: 20px 20px 20px 40px;
+}
+
+footer h3 {
+    font-family: 'Indie Flower', cursive;
+    color:black;
 }

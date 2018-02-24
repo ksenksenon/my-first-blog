@@ -1,22 +1,43 @@
 {% extends 'blog/base.html' %}
+
 {% block content %}
     <div class="post">
-        <h1>{{ post.title }} {% if user.is_authenticated %} <a class="btn btn-default btn-sm" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>{% endif %}</h1>
+        <h1>{{ post.title }}
+          {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+          {% endif %}
+        </h1>
         <p>{{ post.text|linebreaksbr }}</p>
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
             </div>
+
+            <div class="heart-particle-box">
+               <button class="likes post-likes glyphicon glyphicon-thumbs-up btn btn-default" id="heart-icon" data-post-id="{{ post.id }}">
+               </button>
+            <div class="like_count_blog" id="heart-counter" style="display: inline">{{post.likes}}</div>
+            </div>
+
+            {% else %}
+              <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Опубликовать</a>
         {% endif %}
     </div>
     <hr>
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Добавить комментарий</a>
     {% for comment in post.comments.all %}
+     {% if user.is_authenticated or comment.approved_comment %}
         <div class="comment">
+            {% if not comment.approved_comment %}
+                <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+            {% endif %}
             <strong>{{ comment.author }}</strong>
             <p>{{ comment.text|linebreaks }}</p>
             <div class="date">{{ comment.created_date }}</div>
         </div>
+         {% endif %}
     {% empty %}
         <p class="emp">Нет комментариев</p>
     {% endfor %}
