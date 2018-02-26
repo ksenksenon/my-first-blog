@@ -2,32 +2,32 @@ h1 a {
 
 }
 body {
-
+    font-family: 'Exo 2', sans-serif;
 }
 .page-header {
     background-color: #000080;
     font-family: 'Indie Flower', cursive;
-    margin-top: 0;
-    padding: 25px 25px 25px 45px;
+    margin-top:0px;
+    padding: 20px 20px 20px 30px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: white;
-    font-size: 75px;
+    font-size: 65px;
     text-decoration: none;
 }
 
 .content {
     margin-left: 35px;
-min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
 }
 
 h2, h3, h4 {
-    font-family: 'Exo 2', sans-serif;
+
 }
 
 .post {
-  font-family: 'Exo 2', sans-serif;
+
   color: black;
   font-size: 20px;
 }
@@ -73,7 +73,7 @@ h2, h3, h4 {
 
 .adm {
   float:right;
-  font-family: 'Exo 2', sans-serif;
+
 }
 
 .adm a {
@@ -106,4 +106,13 @@ footer h3 {
 
 .public {
   margin-top: 10px;
+}
+
+.navbar{
+  margin-bottom: 0px;
+  font-size: 16px;
+}
+
+.info .btn{
+  border: 1px solid;
 }

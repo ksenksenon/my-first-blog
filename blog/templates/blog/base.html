@@ -2,28 +2,45 @@
 <html>
     <head>
         <title>Ksenksenon blog</title>
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
         <script src="https://code.jquery.com/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Exo+2|Indie+Flower|Neucha" rel="stylesheet">
+
+        
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <script src="{% static 'js/blog.js' %}"></script>
-
     </head>
     <body>
 
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Главная</a></li>
+          <li><a href="{% url 'info' %}">Об авторе</a></li>
+        </ul>
+
+        {% if user.is_authenticated %}
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="glyphicon glyphicon-cog"></span> Управление <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url 'post_new' %}"> <span class="glyphicon glyphicon-plus"></span> Новый пост</a></li>
+              <li><a href="{% url 'post_draft_list' %}"> <span class="glyphicon glyphicon-pencil"></span> Черновики</a></li>
+            </ul>
+          </li>
+        </ul>
+        {% endif %}
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
       <div class="page-header">
-          {% if user.is_authenticated %}
-          <div class="adm">
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="{% url 'post_new' %}"> <span class="glyphicon glyphicon-plus"></span> Новый пост</a></li>
-            <li><a href="{% url 'post_draft_list' %}"><span class="glyphicon glyphicon-pencil"></span> Черновики</a></li>
-          </ul>
-          </div>
-          {% endif %}
           <h1><a href="/">@Ksenksenon Blog</a></h1>
       </div>
       <div class="content container">
